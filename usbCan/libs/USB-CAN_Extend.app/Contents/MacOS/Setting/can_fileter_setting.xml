@@ -1,0 +1,315 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<FileterSettings>
+    <CANIndex Index="0">
+        <FileterIndex Index="0">
+            <Enable>1</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="1">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="2">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="3">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="4">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="5">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="6">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="7">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="8">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="9">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="10">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="11">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="12">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="13">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+    </CANIndex>
+    <CANIndex Index="1">
+        <FileterIndex Index="0">
+            <Enable>1</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="1">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="2">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="3">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="4">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="5">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="6">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="7">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="8">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="9">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="10">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="11">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="12">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+        <FileterIndex Index="13">
+            <Enable>0</Enable>
+            <Mode>0</Mode>
+            <CheckID>0x000</CheckID>
+            <CheckIDE>0</CheckIDE>
+            <CheckRTR>0</CheckRTR>
+            <MaskID>0x000</MaskID>
+            <MaskIDE>0</MaskIDE>
+            <MaskRTR>0</MaskRTR>
+            <IDType>0</IDType>
+        </FileterIndex>
+    </CANIndex>
+</FileterSettings>

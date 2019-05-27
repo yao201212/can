@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ColourSettings>
+    <SendBackground>7</SendBackground>
+    <SendForeground>2</SendForeground>
+    <ReceiveBackground>7</ReceiveBackground>
+    <ReceiveForeground>82</ReceiveForeground>
+    <ErrorBackground>7</ErrorBackground>
+    <ErrorForeground>146</ErrorForeground>
+</ColourSettings>
