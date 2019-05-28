@@ -228,6 +228,9 @@ public class MainActivity extends Activity {
 
 
     public class GetCanDataHandle implements ControlCAN.PVCI_RECEIVE_CALLBACK{
+
+        //存储日志信息；
+        private  final StringBuilder strB = new StringBuilder();;
         /**
          *
          * @param channel 0 or 1 -> channel0 channel1
@@ -239,7 +242,7 @@ public class MainActivity extends Activity {
             {
                 final int ReadDataNum = mGinkgoDriver.ControlCAN.VCI_Receive(channel, CAN_ReadDataBuffer, CAN_ReadDataBuffer.length);
                 for(int i = ReadDataNum-1; i < ReadDataNum; i++){
-                    final StringBuilder strB = new StringBuilder();
+                    strB.setLength(0);
                     strB.append(" RemoteFlag:");
                     strB.append(CAN_ReadDataBuffer[i].RemoteFlag);
                     strB.append(" ExternFlag:");
@@ -250,16 +253,16 @@ public class MainActivity extends Activity {
                     strB.append(" DataLen:");
                     strB.append(CAN_ReadDataBuffer[i].DataLen);
                     strB.append(" Data:");
-                    for(int j = 0; j < CAN_ReadDataBuffer[i].DataLen; j++){
-                        String recData = String.format("%02X ",CAN_ReadDataBuffer[i].Data[j]);
-                        strB.append(recData);
-                    }
-                    Log.d(TAG,strB.toString());
+                    String data = Helper.toHexString(CAN_ReadDataBuffer[i].Data,0,CAN_ReadDataBuffer[i].DataLen);
+                    strB.append(data);
+
+                    final  String finalStr = strB.toString();
+                    Log.d(TAG,finalStr);
 
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            printView.append(strB.toString());
+                            printView.append(finalStr);
                         }
                     });
                 }
