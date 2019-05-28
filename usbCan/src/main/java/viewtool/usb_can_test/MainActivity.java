@@ -35,9 +35,7 @@ public class MainActivity extends Activity {
     static final  byte openCanIndex = 0;
 
     Handler sendMessageHandle;
-
-    int
-
+    
     private static final String TAG = "Can_Log";
 
     @Override
