@@ -36,6 +36,8 @@ public class MainActivity extends Activity {
 
     Handler sendMessageHandle;
 
+    int
+
     private static final String TAG = "Can_Log";
 
     @Override
@@ -65,10 +67,8 @@ public class MainActivity extends Activity {
                     printView.append("No device connected");
                     return;
                 }
-
                 //注册收消息；
                 mGinkgoDriver.ControlCAN.VCI_RegisterReceiveCallback(new GetCanDataHandle());
-
                 // Open device
                 ret = mGinkgoDriver.ControlCAN.VCI_OpenDevice();
                 if(ret != mGinkgoDriver.ErrorType.ERR_SUCCESS){
@@ -90,7 +90,7 @@ public class MainActivity extends Activity {
                 }
 
                 //Set filter
-               ret = MainActivity.canSetFilter(mGinkgoDriver.ControlCAN);
+               ret = MainActivity.canSetFilter(mGinkgoDriver.ControlCAN,openCanIndex);
 
                 if(ret != mGinkgoDriver.ErrorType.ERR_SUCCESS){
                     printView.append("Set filter failed!\n");
@@ -119,11 +119,13 @@ public class MainActivity extends Activity {
                         public void handleMessage(Message msg) {
                             if(msg.what == 1){
                                 canSendData();
-                                sendMessageHandle.sendEmptyMessageDelayed(1,10);
+                            }else if(msg.what == 2){
+                                canSendData();
                             }
                             super.handleMessage(msg);
                         }
                     };
+
 
                     sendMessageHandle.sendEmptyMessage(1);
                 }
@@ -136,7 +138,7 @@ public class MainActivity extends Activity {
      * @param controlCAN
      * @return
      */
-    public static int canSetFilter(ControlCAN controlCAN)
+    public static int canSetFilter(ControlCAN controlCAN,byte openCanIndex)
     {
         ControlCAN.VCI_FILTER_CONFIG CAN_FilterConfig = controlCAN.new VCI_FILTER_CONFIG();
         CAN_FilterConfig.FilterIndex = 0;
@@ -149,7 +151,7 @@ public class MainActivity extends Activity {
         CAN_FilterConfig.MASK_IDE = 0;
         CAN_FilterConfig.MASK_RTR = 0;
         CAN_FilterConfig.MASK_Std_Ext = 0;
-        int ret = controlCAN.VCI_SetFilter((byte)0, CAN_FilterConfig);
+        int ret = controlCAN.VCI_SetFilter(openCanIndex, CAN_FilterConfig);
         return ret;
     }
 
@@ -189,6 +191,7 @@ public class MainActivity extends Activity {
 
 
     public void canSendData(){
+        sendMessageHandle.removeMessages(2);
         int ret = 0 ;
         ControlCAN.VCI_CAN_OBJ CAN_SendData[] = new ControlCAN.VCI_CAN_OBJ[2];
         for (int i = 0; i < CAN_SendData.length; i++) {
@@ -199,6 +202,7 @@ public class MainActivity extends Activity {
             data[1] = (byte)0x01;
             data[2] = (byte)0x0c;
 
+
             CAN_SendData[i].Data = data;
 //                        for (int j = 0; j < CAN_SendData[i].DataLen; j++) {
 //                            CAN_SendData[i].Data[j] = (byte) (i + j);
@@ -207,18 +211,19 @@ public class MainActivity extends Activity {
             CAN_SendData[i].RemoteFlag = 0;
             CAN_SendData[i].ID = 0x7DF;
             CAN_SendData[i].SendType = 2;
-            //CAN_SendData[i].SendType = 0;
+            CAN_SendData[i].SendType = 0;
         }
         ret = mGinkgoDriver.ControlCAN.VCI_Transmit(openCanIndex, CAN_SendData, CAN_SendData.length);
         if (ret != mGinkgoDriver.ErrorType.ERR_SUCCESS) {
             //printView.append("Send CAN data failed!\n");
             //printView.append(String.format("Error code: %d\n", ret));
             Log.d(TAG,"Send CAN data failed! code:"+ret);
-            return;
         } else {
             //printView.append("Send CAN data success!\n");
             Log.d(TAG,"Send CAN data success");
         }
+        //5s消息超时
+        sendMessageHandle.sendEmptyMessageDelayed(2,5000);
     }
 
 
@@ -229,71 +234,41 @@ public class MainActivity extends Activity {
          * @param DataNum Received data
          */
         public void ReceiveCallback(byte channel, int DataNum) {
+            Log.d(TAG,"ReceiveCallback length :"+DataNum);
             if(DataNum > 0)
             {
                 final int ReadDataNum = mGinkgoDriver.ControlCAN.VCI_Receive(channel, CAN_ReadDataBuffer, CAN_ReadDataBuffer.length);
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        for(int i = ReadDataNum-1; i < ReadDataNum; i++){
-                            printView.setText("");
-                            printView.append("");
-                            printView.append("--CAN_ReceiveData.RemoteFlag = "
-                                    + String.format("%d", CAN_ReadDataBuffer[i].RemoteFlag) + "\n");
-                            printView.append("--CAN_ReceiveData.ExternFlag = "
-                                    + String.format("%d", CAN_ReadDataBuffer[i].ExternFlag) + "\n");
-                            printView.append("--CAN_ReceiveData.ID = 0x"
-                                    + String.format("%x", CAN_ReadDataBuffer[i].ID) + "\n");
-                            printView.append("--CAN_ReceiveData.DataLen = "
-                                    + String.format("%d", CAN_ReadDataBuffer[i].DataLen) + "\n");
-                            printView.append("--CAN_ReceiveData.Data:");
-                            for(int j = 0; j < CAN_ReadDataBuffer[i].DataLen; j++){
-                                printView.append(String.format("%02X ",CAN_ReadDataBuffer[i].Data[j]));
-                            }
-                            printView.append("\n");
-                            printView.append("--CAN_ReceiveData.TimeStamp = "+ String.format("%d", CAN_ReadDataBuffer[i].TimeStamp) + "\n");
-                        }
+                for(int i = ReadDataNum-1; i < ReadDataNum; i++){
+                    final StringBuilder strB = new StringBuilder();
+                    strB.append(" RemoteFlag:");
+                    strB.append(CAN_ReadDataBuffer[i].RemoteFlag);
+                    strB.append(" ExternFlag:");
+                    strB.append(CAN_ReadDataBuffer[i].ExternFlag);
+                    strB.append(String.format("id:%x", CAN_ReadDataBuffer[i].ID));
+                    strB.append(" TimeStamp:");
+                    strB.append(CAN_ReadDataBuffer[i].TimeStamp);
+                    strB.append(" DataLen:");
+                    strB.append(CAN_ReadDataBuffer[i].DataLen);
+                    strB.append(" Data:");
+                    for(int j = 0; j < CAN_ReadDataBuffer[i].DataLen; j++){
+                        String recData = String.format("%02X ",CAN_ReadDataBuffer[i].Data[j]);
+                        strB.append(recData);
                     }
-                });
+                    Log.d(TAG,strB.toString());
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            printView.append(strB.toString());
+                        }
+                    });
+                }
+
+                //读完就发数据；
+                sendMessageHandle.sendEmptyMessage(1);
             }
         }
     }
-
-    /**
-     *
-     * @param channel 0 or 1 -> channel0 channel1
-     * @param DataNum Received data
-     */
-    private void ReceiveHandler(byte channel, int DataNum) {
-        if(DataNum > 0)
-        {
-            final int ReadDataNum = mGinkgoDriver.ControlCAN.VCI_Receive(channel, CAN_ReadDataBuffer, CAN_ReadDataBuffer.length);
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    for(int i = ReadDataNum-1; i < ReadDataNum; i++){
-                        printView.setText("");
-                        printView.append("");
-                        printView.append("--CAN_ReceiveData.RemoteFlag = "
-                                + String.format("%d", CAN_ReadDataBuffer[i].RemoteFlag) + "\n");
-                        printView.append("--CAN_ReceiveData.ExternFlag = "
-                                + String.format("%d", CAN_ReadDataBuffer[i].ExternFlag) + "\n");
-                        printView.append("--CAN_ReceiveData.ID = 0x"
-                                + String.format("%x", CAN_ReadDataBuffer[i].ID) + "\n");
-                        printView.append("--CAN_ReceiveData.DataLen = "
-                                + String.format("%d", CAN_ReadDataBuffer[i].DataLen) + "\n");
-                        printView.append("--CAN_ReceiveData.Data:");
-                        for(int j = 0; j < CAN_ReadDataBuffer[i].DataLen; j++){
-                            printView.append(String.format("%02X ",CAN_ReadDataBuffer[i].Data[j]));
-                        }
-                        printView.append("\n");
-                        printView.append("--CAN_ReceiveData.TimeStamp = "+ String.format("%d", CAN_ReadDataBuffer[i].TimeStamp) + "\n");
-                    }
-                }
-            });
-        }
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
